@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Event Registration</h1>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="toggle-icon">🌙</span>
+            </button>
+        </div>
+        <div class="form-container">
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventSelect">Choose Event:</label>
+                    <select id="eventSelect" name="event">
+                        <option value="">Select an event...</option>
+                        <option value="conference" data-price="150">Tech Conference ($150)</option>
+                        <option value="workshop" data-price="75">Design Workshop ($75)</option>
+                        <option value="networking" data-price="50">Networking Event ($50)</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tickets">Number of Tickets:</label>
+                        <input type="number" id="tickets" name="tickets" min="1" max="10" value="1">
+                    </div>
+                </div>
+
+                <div id="mealPreferences" class="meal-preferences">
+                    <!-- Dynamic meal preferences will be generated here -->
+                </div>
+
+                <div class="price-display">
+                    <h3>Registration Summary</h3>
+                    <p>Event: <span id="selectedEvent">Not selected</span></p>
+                    <p>Tickets: <span id="ticketCount">1</span> × <span id="ticketPrice">$0</span></p>
+                    <p>Meal: <span id="mealCost">$0</span></p>
+                    <div class="total-price">Total: $<span id="totalPrice">0</span></div>
+                </div>
+
+                <!-- Success Message Container -->
+                <div id="successMessage" class="success-message hidden">
+                    <h3>🎉 Registration Successful!</h3>
+                    <div id="confirmationDetails">
+                        <!-- Confirmation details will be populated here -->
+                    </div>
+                    <p class="confirmation-note">A confirmation email will be sent to your email address.</p>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit">Register for Event</button>
+                    <button type="button" id="resetBtn" title="Reset form (Ctrl+R)">🔄 Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
